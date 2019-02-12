@@ -1,0 +1,10 @@
+<% if @category.in?(Blog::VALID_CATEGORIES) %>
+  <h3>
+    Blogs in <%= @category.capitalize %> category
+    <small><span class="badge badge-pill badge-dark">count: <%= @blogs.count %></span></small>
+  </h3>
+  <%= link_to "Add New", new_blog_path, class: "btn btn-primary ml-2" if logged_in? %>
+  <%= render 'list', hideCategory: true %>
+<% else %>
+  <div class="alert alert-danger">Invalid Category: <%= @category.capitalize %></div>
+<% end %>

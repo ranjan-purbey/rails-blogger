@@ -1,0 +1,10 @@
+<% if @user %>
+  <h3>
+    Blogs by <%= current_user==@user and "You" or @user.username.capitalize %>
+    <small><span class="badge badge-pill badge-dark">count: <%= @blogs.count %></span></small>
+  </h3>
+  <%= link_to "Add New", new_blog_path, class: "btn btn-primary ml-2" if logged_in? and current_user==@user %>
+<% else %>
+  <div class="alert alert-danger">User doesn't exist</div>
+<% end %>
+<%= render 'list', hideUser: true %>

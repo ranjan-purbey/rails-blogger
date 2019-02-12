@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/navbar' %>
+    <div class="container mt-4">
+      <div id="errors">
+        <% flash.each do |msg_type, msg| %>
+          <div class="alert alert-<%= msg_type %>"><%= msg %></div>
+        <% end %>
+      </div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

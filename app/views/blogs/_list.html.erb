@@ -1,0 +1,31 @@
+<% hideUser ||= false; hideCategory ||= false %>
+
+<div>
+  <% @blogs.each do |blog| %>
+    <div class="card my-3 border-dark">
+      <div class="card-body">
+        <h5 class="card-title d-inline-block">
+          <%= link_to blog.title, blog_path(blog)%>
+        </h5>
+        <% unless hideCategory %>
+          <span class="badge badge-info badge-pill">
+             <%= link_to "category: #{blog.category.capitalize}",
+              category_path(blog.category),
+              class: "text-white" %>
+          </span>
+        <% end %>
+        <% unless hideUser %>
+          <span class="badge badge-secondary badge-pill">
+            <%= link_to "author: #{current_user==blog.user and "You" or blog.user.username.capitalize}",
+             user_blogs_path(blog.user_id),
+             class: "text-white" %>
+          </span>
+        <% end %>
+        <% unless blog.public %>
+          <span class="badge badge-pill badge-primary">private</span>
+        <% end %>
+        <div class="card-text"><%= blog.content %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

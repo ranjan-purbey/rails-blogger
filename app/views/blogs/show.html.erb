@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <div class="text-center"><h1><%= @blog.title %></h1></div>
+  <hr class="my-4">
+  <div class="container">
+    <div style="font-size:1.5em; border-radius: 5px; background: white; padding: 10px; margin: 10px;min-height: 150px">
+      <%= @blog.content %>
+    </div>
+    <% if logged_in? and @blog.user== current_user %>
+      <%= link_to "Edit", edit_blog_path(@blog), class: "btn btn-warning" %>
+      <%= link_to "Delete", blog_path(@blog), method: 'delete', class: "btn btn-danger" %>
+    <% end %>
+    </div
+</div>

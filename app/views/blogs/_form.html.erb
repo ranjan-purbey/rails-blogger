@@ -1,0 +1,20 @@
+<%= form_with model: @blog, url: submit_path, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category %>
+    <%= f.select :category, Blog::VALID_CATEGORIES.map{|category| [category.capitalize, category]}, {}, {class: "custom-select"} %>
+  </div>
+  <div class="custom-control custom-checkbox m-2">
+    <%= f.check_box :public, class: "custom-control-input" %>
+    <%= f.label :public, class: "custom-control-label" %>
+  </div>
+  <%= f.submit  submit_button_label, class: "btn btn-primary" %>
+  <%= f.button "Reset", type: 'reset', class: "btn btn-link" %>
+<% end %>

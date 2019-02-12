@@ -1,0 +1,17 @@
+<% if @user.errors.any? %>
+  <div class="error">
+    <h3>Following <%= "errors".pluralize(@user.errors.count) %> occurred:</h3>
+    <% @user.errors.each do |field, message| %>
+      <div><%= "#{field.capitalize} #{message}" if @user.errors[field].first == message %></div>
+    <% end %>
+  </div>
+<% end %>
+<style>
+  .error{
+    margin: 10px auto;
+    padding: 5px;
+    max-width: 500px;
+    background: #f99;
+    border: dashed 1px red
+  }
+</style>

@@ -1,0 +1,8 @@
+<h3>
+  All Blogs
+  <small>
+    <span class="badge badge-pill badge-dark">count: <%= @blogs.count %></span>
+  </small>
+  <%= link_to "Add New", new_blog_path, class: "btn btn-primary ml-2" if logged_in? %>
+</h3>
+<%= render 'list', blogs: Blog.all %>
