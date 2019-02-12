@@ -1,4 +1,4 @@
-
+<% provide(:title, "Login") %>
 <h3>Log In</h3>
 <%= form_with scope: :session, url: login_path do |f| %>
   <%= hidden_field_tag :referrer, request.referrer %>

@@ -1,3 +1,4 @@
+<% provide(:title, "Sign Up") %>
 <h3>Create Account</h3>
 <%= form_with model: @user, url: '/signup' do |f| %>
   <%= hidden_field_tag :referrer, request.referrer %>
