@@ -9,7 +9,6 @@ class UsersController < ApplicationController
       login @user, message
     else
       flash.now["danger"] = @user.errors.full_messages.first
-      render 'new'
     end
   end
   private

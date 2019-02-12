@@ -1,6 +1,7 @@
 
 <h3>Log In</h3>
-<%= form_with scope: :session, url: login_path, local: true do |f| %>
+<%= form_with scope: :session, url: login_path do |f| %>
+  <%= hidden_field_tag :referrer, request.referrer %>
   <div class="form-group">
     <%= f.label :username %>
     <%= f.text_field :username, class: "form-control" %>

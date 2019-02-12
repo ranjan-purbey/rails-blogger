@@ -1,4 +1,4 @@
-<%= form_with model: @blog, url: submit_path, local: true do |f| %>
+<%= form_with model: @blog, url: submit_path do |f| %>
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control" %>

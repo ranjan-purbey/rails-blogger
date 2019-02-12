@@ -2,7 +2,7 @@ module SessionsHelper
   def login(user, message = "Successfully logged in")
     session[:user_id] = user.id
     flash["success"] = message
-    redirect_to request.referrer || root_path
+    redirect_to params[:referrer] || root_path
   end
   def current_user
     if session[:user_id]
@@ -25,5 +25,6 @@ module SessionsHelper
     session.delete(:user_id)
     @current_user = nil
     flash["success"] = "Successfully logged out"
+    redirect_to request.referrer || root_path
   end
 end

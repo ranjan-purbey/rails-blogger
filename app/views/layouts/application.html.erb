@@ -13,9 +13,7 @@
     <%= render 'layouts/navbar' %>
     <div class="container mt-4">
       <div id="errors">
-        <% flash.each do |msg_type, msg| %>
-          <div class="alert alert-<%= msg_type %>"><%= msg %></div>
-        <% end %>
+        <%= render "layouts/flash" %>
       </div>
       <%= yield %>
     </div>

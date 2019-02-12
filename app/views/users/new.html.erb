@@ -1,5 +1,6 @@
 <h3>Create Account</h3>
-<%= form_with model: @user, url: '/signup', local:true do |f| %>
+<%= form_with model: @user, url: '/signup' do |f| %>
+  <%= hidden_field_tag :referrer, request.referrer %>
   <div class="form-group">
     <%= f.label :username %>
     <%= f.text_field :username, class: "form-control" %>

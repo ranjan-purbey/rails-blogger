@@ -10,11 +10,9 @@ class SessionsController < ApplicationController
       login user
     else
       flash.now["danger"] = "Wrong credentials"
-      render 'new'
     end
   end
   def destroy
     logout
-    redirect_to root_path
   end
 end
